@@ -1,0 +1,35 @@
+{% block header %}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PlayMakers Avatar Upload</title>
+</head>
+<body style="text-align: center">
+{% endblock %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+    <div style="color: red;">
+        <p>{{ message }}</p>
+    </div>  
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+{% block content %}
+{% endblock %}
+
+{% block avatar %}
+    <p>No Avatar Uploaded!</p>
+{% endblock %}
+
+{% block footer %}
+</body>
+</html>
+{% endblock %}

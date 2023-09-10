@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <span class="title"><h1>Avatar Upload</h1></span>
+    <div class="content">
+        <form method="POST" enctype="multipart/form-data" action="/">
+            <input type="file" id="myFile" name="uploaded-file">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock %}
+
+{% block avatar %}
+    {% if os.path.exists('./app/static/avatar.png') %}
+    <span class="title"><h1>Your Avatar</h1></span>
+    <img src="{{ url_for('static', filename='avatar.png') }}" alt="Avatar" width="512" height="512">
+    {% else %}
+        {{ super() }}
+    {% endif %}
+{% endblock %}
